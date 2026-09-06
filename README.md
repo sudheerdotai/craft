@@ -10,7 +10,7 @@ It operates purely on a **Bring Your Own Key (BYOK)** model—no subscriptions, 
 
 - **⚡ Vibe Coding Environment**: Express ideas in natural language and watch your Next.js app build in real-time.
 - **🔓 100% Open Source**: Transparent codebase with full ownership over your projects and data.
-- **🔑 Pure BYOK Model**: Connect your own AI provider API keys. No subscriptions or tier limits.
+- **🔑 Pure BYOK & Vercel Ecosystem**: Connect your own AI provider keys or log in via **Vercel OAuth** to seamlessly leverage Vercel AI Gateway, automated app deployment, database provisioning, and Blob image storage without manual config.
 - **🌐 Self-Hostable**: Deploy your own instance directly to Vercel (or any Node.js host) with a single click.
 - **🛠️ Built for Next.js**: Tailored for Next.js App Router, React 19, TypeScript, and Tailwind CSS.
 
