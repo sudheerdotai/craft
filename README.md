@@ -1,34 +1,68 @@
-This is a [Next.js](https://nextjs.org) project created with `pnpm`.
+# Craft 🚀
 
-## Getting Started
+**Craft** is an open-source, vibe-coding tool designed for building and crafting Next.js applications seamlessly. 
 
-First, run the development server:
+It operates purely on a **Bring Your Own Key (BYOK)** model—no subscriptions, no hidden fees, and zero vendor lock-in. Use your own AI provider keys (Anthropic, OpenAI, OpenRouter, Google Gemini, etc.) directly.
 
-```bash
-pnpm dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
+- **⚡ Vibe Coding Environment**: Express ideas in natural language and watch your Next.js app build in real-time.
+- **🔓 100% Open Source**: Transparent codebase with full ownership over your projects and data.
+- **🔑 Pure BYOK Model**: Connect your own AI provider API keys. No subscriptions or tier limits.
+- **🌐 Self-Hostable**: Deploy your own instance directly to Vercel (or any Node.js host) with a single click.
+- **🛠️ Built for Next.js**: Tailored for Next.js App Router, React 19, TypeScript, and Tailwind CSS.
 
-## Contributing & Branch Policy
+---
 
-- **No Direct Pushes to `main`**: Direct pushing to `main` is restricted.
-- **Pull Requests Only**: All changes must be made via PRs and approved by repository owners before merging.
-- For complete setup instructions and guidelines, please refer to [CONTRIBUTING.md](CONTRIBUTING.md).
+## 🚀 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- [Node.js](https://nodejs.org/) v20+
+- [pnpm](https://pnpm.io/) v10+
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Local Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sudheerdotai/craft.git
+   cd craft
+   ```
 
-## Deploy on Vercel
+2. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Start the development server:**
+   ```bash
+   pnpm dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## ☁️ Deployment & Self-Hosting
+
+You can self-host Craft on Vercel or any cloud provider supporting Next.js:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsudheerdotai%2Fcraft)
+
+Simply set up your environment variables during deployment and bring your API keys when using the application.
+
+---
+
+## 🔒 Branch & Contribution Policy
+
+- **No Direct Pushes to `main`**: All changes must be submitted via Pull Requests.
+- **Owner Approval**: PRs are reviewed and merged exclusively by repository owners.
+- Please review [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines and code review practices.
+
+---
+
+## 📄 License
+
+Distributed under the [MIT License](LICENSE). Free for commercial and non-commercial use.
