@@ -58,8 +58,7 @@ Thank you for considering contributing to `craft`! To maintain code quality and 
 
 7. **Code Review & Merging**
    - Fill out the Pull Request template completely.
-   - Wait for automated CI status checks to pass.
-   - A repository owner will review your PR. Address any requested changes prompt.
+   - A repository owner will review your PR. Address any requested changes promptly.
    - Once approved by an owner, the PR will be merged into `main`.
 
 ---
@@ -73,9 +72,9 @@ To enforce this workflow on GitHub:
 3. Set **Branch pattern name**: `main`.
 4. Enable the following settings:
    - ✅ **Require a pull request before merging**
-     - ✅ Require approvals (at least 1 owner/code owner approval)
-     - ✅ Dismiss stale pull request approvals when new commits are pushed
-   - ✅ **Require status checks to pass before merging** (e.g., `Lint & Build`)
+     - ✅ Require approvals (1 approval)
+     - ✅ **Require review from Code Owners** (ensures only repository owners listed in `CODEOWNERS` can approve)
+   - ❌ **Do NOT enable "Require status checks to pass"**
    - ✅ **Do not allow bypassing the above settings** (Enforce rules for administrators/everyone)
    - ✅ **Restrict who can push to matching branches** (Prevent direct pushes)
 
