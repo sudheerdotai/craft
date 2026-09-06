@@ -14,7 +14,7 @@ Fixes # (issue number if applicable)
 
 ## Checklist
 
-- [ ] I have read the [CONTRIBUTING.md](../CONTRIBUTING.md) guidelines.
+- [ ] I have read the [CONTRIBUTING.md](/CONTRIBUTING.md) guidelines.
 - [ ] My code follows the style guidelines of this project.
 - [ ] I have tested my changes locally using `pnpm lint` and `pnpm build`.
 - [ ] No direct commits were made to the `main` branch.
