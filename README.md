@@ -1,6 +1,6 @@
 # Craft 🚀
 
-**Craft** is an open-source, vibe-coding tool designed for building and crafting Next.js applications seamlessly. 
+**Craft** is an open-source, vibe-coding tool designed for building and crafting Next.js applications seamlessly.
 
 It operates purely on a **Bring Your Own Key (BYOK)** model—no subscriptions, no hidden fees, and zero vendor lock-in. Use your own AI provider keys (Anthropic, OpenAI, OpenRouter, Google Gemini, etc.) directly.
 
@@ -26,17 +26,20 @@ It operates purely on a **Bring Your Own Key (BYOK)** model—no subscriptions, 
 ### Local Development
 
 1. **Clone the repository:**
+
    ```bash
    git clone https://github.com/sudheerdotai/craft.git
    cd craft
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pnpm install
    ```
 
 3. **Start the development server:**
+
    ```bash
    pnpm dev
    ```
