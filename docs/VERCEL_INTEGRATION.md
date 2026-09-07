@@ -26,18 +26,22 @@ By connecting their Vercel account via OAuth (`https://vercel.com/oauth/authoriz
 ## 🛠️ Integrated Vercel Services
 
 ### 1. 🤖 Vercel AI Gateway
+
 - **Function**: Routes prompt requests to top LLM models (Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro) using the user's Vercel token or OIDC credentials.
 - **Benefit**: Users don't need to manually copy individual API keys for Anthropic, OpenAI, or Google—Vercel AI Gateway handles routing and usage limits directly on their Vercel account.
 
 ### 2. 🚀 One-Click App Publishing
+
 - **Function**: Craft generates Next.js project code in real-time and deploys it using the Vercel Deployments API (`POST /v13/deployments`).
 - **Benefit**: Instantly provisions live URLs (e.g., `my-vibe-app.vercel.app`) with SSL certificates and automatic preview environments.
 
 ### 3. 💾 Vercel Postgres & Storage
+
 - **Function**: Automatically creates databases (Vercel Postgres) and key-value stores (Vercel KV / Edge Config) via Vercel REST APIs (`/v1/storage/stores`).
 - **Benefit**: Generated Next.js apps with Prisma, Drizzle, or raw SQL get database connection strings automatically injected into environment variables.
 
 ### 4. 🖼️ Vercel Blob (Image & Media Storage)
+
 - **Function**: Provisions Vercel Blob stores for handling file uploads, user avatars, and AI-generated image assets.
 - **Benefit**: Zero-config asset hosting with CDN distribution out of the box.
 
