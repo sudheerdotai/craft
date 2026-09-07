@@ -1,8 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { X, Mail, Loader2 } from "lucide-react";
+import { Mail, Loader2 } from "lucide-react";
 import { signIn } from "@/lib/auth-client";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -15,8 +25,6 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [isSignUp, setIsSignUp] = useState(false);
   const [loading, setLoading] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  if (!isOpen) return null;
 
   const handleSocialSignIn = async (
     provider: "vercel" | "github" | "google",
@@ -76,37 +84,32 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      <div className="w-full max-w-sm rounded-2xl border border-zinc-800 bg-zinc-950 p-6 shadow-2xl relative">
-        <button
-          onClick={onClose}
-          className="absolute right-4 top-4 p-1 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-zinc-900 transition"
-        >
-          <X className="w-4 h-4" />
-        </button>
-
-        <div className="text-center space-y-1 mb-6">
-          <h2 className="text-xl font-bold tracking-tight text-white">
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent className="sm:max-w-sm border-zinc-800 bg-zinc-950 p-6 text-zinc-100">
+        <DialogHeader className="text-center sm:text-center">
+          <DialogTitle className="text-xl font-bold tracking-tight text-white">
             {isSignUp ? "Create an account" : "Welcome back"}
-          </h2>
-          <p className="text-xs text-zinc-400">
+          </DialogTitle>
+          <DialogDescription className="text-xs text-zinc-400">
             Sign in to start vibe coding with Craft
-          </p>
-        </div>
+          </DialogDescription>
+        </DialogHeader>
 
         {error && (
-          <div className="mb-4 p-2.5 rounded-lg bg-red-950/60 border border-red-800 text-red-300 text-xs text-center">
+          <div className="p-2.5 rounded-lg bg-destructive/20 border border-destructive/50 text-destructive-foreground text-xs text-center">
             {error}
           </div>
         )}
 
         {/* Social Logins */}
-        <div className="space-y-2">
+        <div className="space-y-2 pt-2">
           {/* Sign in with Vercel */}
-          <button
+          <Button
+            type="button"
+            variant="default"
             onClick={() => handleSocialSignIn("vercel")}
             disabled={!!loading}
-            className="w-full flex items-center justify-center gap-2.5 px-3 py-2 rounded-xl bg-white text-black text-xs font-semibold hover:bg-zinc-200 transition disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2.5 bg-white text-black hover:bg-zinc-200 text-xs font-semibold"
           >
             {loading === "vercel" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -116,13 +119,15 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </svg>
             )}
             <span>Continue with Vercel</span>
-          </button>
+          </Button>
 
           {/* Sign in with GitHub */}
-          <button
+          <Button
+            type="button"
+            variant="outline"
             onClick={() => handleSocialSignIn("github")}
             disabled={!!loading}
-            className="w-full flex items-center justify-center gap-2.5 px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-xs font-semibold hover:bg-zinc-800 transition disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2.5 border-zinc-800 bg-zinc-900 text-white hover:bg-zinc-800 text-xs font-semibold"
           >
             {loading === "github" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -136,13 +141,15 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </svg>
             )}
             <span>Continue with GitHub</span>
-          </button>
+          </Button>
 
           {/* Sign in with Google */}
-          <button
+          <Button
+            type="button"
+            variant="outline"
             onClick={() => handleSocialSignIn("google")}
             disabled={!!loading}
-            className="w-full flex items-center justify-center gap-2.5 px-3 py-2 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-xs font-semibold hover:bg-zinc-800 transition disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2.5 border-zinc-800 bg-zinc-900 text-white hover:bg-zinc-800 text-xs font-semibold"
           >
             {loading === "google" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -167,40 +174,40 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </svg>
             )}
             <span>Continue with Google</span>
-          </button>
+          </Button>
         </div>
 
         {/* Divider */}
-        <div className="flex items-center my-4">
-          <div className="flex-1 border-t border-zinc-800" />
+        <div className="flex items-center my-3">
+          <Separator className="flex-1 bg-zinc-800" />
           <span className="px-3 text-[11px] text-zinc-500 uppercase tracking-wider">
             or email
           </span>
-          <div className="flex-1 border-t border-zinc-800" />
+          <Separator className="flex-1 bg-zinc-800" />
         </div>
 
         {/* Email form */}
         <form onSubmit={handleEmailAuth} className="space-y-3">
-          <input
+          <Input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter your email"
             required
-            className="w-full px-3 py-2 text-xs rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-600"
+            className="border-zinc-800 bg-zinc-900 text-zinc-100 placeholder:text-zinc-500 text-xs h-9"
           />
-          <input
+          <Input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
             required
-            className="w-full px-3 py-2 text-xs rounded-xl border border-zinc-800 bg-zinc-900 text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-zinc-600"
+            className="border-zinc-800 bg-zinc-900 text-zinc-100 placeholder:text-zinc-500 text-xs h-9"
           />
-          <button
+          <Button
             type="submit"
             disabled={loading === "email"}
-            className="w-full flex items-center justify-center gap-2 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-medium transition disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-white text-xs font-medium h-9"
           >
             {loading === "email" ? (
               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -208,10 +215,10 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               <Mail className="w-3.5 h-3.5" />
             )}
             <span>{isSignUp ? "Create Account" : "Sign in with Email"}</span>
-          </button>
+          </Button>
         </form>
 
-        <div className="mt-4 text-center">
+        <div className="text-center pt-2">
           <button
             type="button"
             onClick={() => setIsSignUp(!isSignUp)}
@@ -222,7 +229,7 @@ export function AuthModal({ isOpen, onClose }: AuthModalProps) {
               : "Don't have an account? Sign up"}
           </button>
         </div>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 }

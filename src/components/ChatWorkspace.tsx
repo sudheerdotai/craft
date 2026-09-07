@@ -16,6 +16,8 @@ import {
   LogIn,
 } from "lucide-react";
 import { Message } from "@/components/Sidebar";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface ChatWorkspaceProps {
   messages: Message[];
@@ -95,24 +97,28 @@ export function ChatWorkspace({
 
           <div className="flex items-center gap-2">
             {!isLoggedIn && (
-              <button
+              <Button
+                variant="default"
+                size="sm"
                 onClick={onSignIn}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-white text-black hover:bg-zinc-200 transition"
+                className="gap-1.5 bg-white text-black hover:bg-zinc-200 text-xs font-medium h-8"
               >
                 <LogIn className="w-3.5 h-3.5" />
                 <span>Sign In</span>
-              </button>
+              </Button>
             )}
 
             {hasStarted && (
-              <button
+              <Button
+                variant="secondary"
+                size="sm"
                 onClick={onDeploy}
                 disabled={isDeploying}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-lg bg-zinc-100 text-black hover:bg-zinc-300 transition disabled:opacity-50"
+                className="gap-1.5 bg-zinc-100 text-black hover:bg-zinc-300 text-xs font-medium h-8 disabled:opacity-50"
               >
                 <Rocket className="w-3.5 h-3.5" />
                 <span>{isDeploying ? "Deploying..." : "Deploy"}</span>
-              </button>
+              </Button>
             )}
           </div>
         </div>
@@ -143,10 +149,13 @@ export function ChatWorkspace({
                   />
                   <div className="flex items-center justify-between pt-3 mt-1 border-t border-zinc-800/60">
                     <div className="flex items-center gap-2">
-                      <span className="inline-flex items-center gap-1 text-[11px] font-medium text-zinc-400 bg-zinc-800/80 px-2.5 py-1 rounded-full border border-zinc-700/60">
+                      <Badge
+                        variant="secondary"
+                        className="gap-1 font-medium text-zinc-400 bg-zinc-800/80 border border-zinc-700/60 text-[11px] py-0.5 px-2.5 rounded-full"
+                      >
                         <Sparkles className="w-3 h-3 text-purple-400" />
                         Next.js 16 + React 19
-                      </span>
+                      </Badge>
                     </div>
 
                     <div className="flex items-center gap-2">
